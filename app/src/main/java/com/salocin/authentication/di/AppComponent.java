@@ -4,6 +4,7 @@ package com.salocin.authentication.di;
 import android.app.Application;
 
 import com.salocin.authentication.BaseApplication;
+import com.salocin.authentication.SessionManager;
 
 import javax.inject.Singleton;
 
@@ -22,6 +23,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
         }
 )
 public interface AppComponent extends AndroidInjector<BaseApplication> {
+
+    SessionManager sessionManager();
 
     @Component.Builder
     interface Builder{
