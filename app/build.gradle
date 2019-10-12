@@ -56,5 +56,5 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:2.2.7"
 
     // Rx-Retrofit Call Adapter
-    implementation "com.squareup.retrofit2:adapter-rxjava2:2.5.0" // Retrofit call adapter
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.5.0" // Retrofit call adapter for converting Call object to Flowable
 }
