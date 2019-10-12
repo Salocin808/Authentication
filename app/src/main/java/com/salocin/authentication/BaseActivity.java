@@ -26,6 +26,7 @@ public abstract class BaseActivity extends DaggerAppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        subscribeObservers();
     }
 
     private void subscribeObservers(){
@@ -50,6 +51,7 @@ public abstract class BaseActivity extends DaggerAppCompatActivity {
                         }
 
                         case NOT_AUTHENTICATED:{
+                            navLoginScreen();
                             break;
                         }
 
