@@ -57,4 +57,7 @@ dependencies {
 
     // Rx-Retrofit Call Adapter
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.5.0" // Retrofit call adapter for converting Call object to Flowable
+
+    // Reactive Streams (convert Observable to LiveData)
+    implementation "android.arch.lifecycle:reactivestreams:1.1.1"
 }
