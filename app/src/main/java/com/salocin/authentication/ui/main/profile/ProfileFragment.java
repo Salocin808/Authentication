@@ -1,0 +1,30 @@
+package com.salocin.authentication.ui.main.profile;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.os.TokenWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.salocin.authentication.R;
+
+import dagger.android.support.DaggerFragment;
+
+public class ProfileFragment extends DaggerFragment {
+
+    private static final String TAG = "ProfileFragment";
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        Toast.makeText(getActivity(), "Profile Fragment", Toast.LENGTH_LONG).show();
+
+        return inflater.inflate(R.layout.fragment_profile, container,false);
+    }
+}

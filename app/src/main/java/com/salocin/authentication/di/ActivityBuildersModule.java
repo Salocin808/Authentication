@@ -2,6 +2,7 @@ package com.salocin.authentication.di;
 
 import com.salocin.authentication.di.auth.AuthModule;
 import com.salocin.authentication.di.auth.AuthViewModelsModule;
+import com.salocin.authentication.di.main.MainFragmentBuildersModule;
 import com.salocin.authentication.ui.auth.AuthActivity;
 import com.salocin.authentication.ui.main.MainActivity;
 
@@ -21,6 +22,11 @@ public abstract class ActivityBuildersModule {
     abstract AuthActivity contributeAuthActivity();
 
     @ContributesAndroidInjector
+            (
+                    modules = {
+                            MainFragmentBuildersModule.class
+                    }
+            )
     abstract MainActivity contributeMainActivity();
 
 }

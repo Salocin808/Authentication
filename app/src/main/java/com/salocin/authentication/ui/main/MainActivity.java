@@ -10,6 +10,7 @@ import androidx.core.view.GravityCompat;
 
 import com.salocin.authentication.BaseActivity;
 import com.salocin.authentication.R;
+import com.salocin.authentication.ui.main.profile.ProfileFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -19,6 +20,9 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        testFragment();
     }
 
     @Override
@@ -51,4 +55,9 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    private void testFragment(){
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_container, new ProfileFragment())
+                .commit();
+    }
 }
