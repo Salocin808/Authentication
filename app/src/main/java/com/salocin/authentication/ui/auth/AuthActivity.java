@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.se.omapi.Session;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -16,7 +18,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.RequestManager;
 import com.salocin.authentication.R;
+import com.salocin.authentication.SessionManager;
 import com.salocin.authentication.models.User;
+import com.salocin.authentication.ui.main.MainActivity;
 import com.salocin.authentication.viewmodels.ViewModelProviderFactory;
 
 import javax.inject.Inject;
@@ -42,6 +46,9 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
     @Inject
     RequestManager requestManager;
 
+    @Inject
+    SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +67,7 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
     }
 
     private void subscribeObservers(){
-        viewModel.observeAuthState().observe(this, new Observer<AuthResource<User>>() {
+        sessionManager.getAuthUser().observe(this, new Observer<AuthResource<User>>() {
             @Override
             public void onChanged(AuthResource<User> userAuthResource) {
                 if(userAuthResource != null){
@@ -74,6 +81,7 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
                         case AUTHENTICATED:{
                             showProgressBar(false);
                             Log.d(TAG, "onChanged: LOGIN SUCCESS:" + userAuthResource.data.getEmail());
+                            onLoginSuccess();
                             break;
                         }
 
@@ -93,6 +101,12 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
 
             }
         });
+    }
+
+    private void onLoginSuccess(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void showProgressBar(boolean isVisible){
