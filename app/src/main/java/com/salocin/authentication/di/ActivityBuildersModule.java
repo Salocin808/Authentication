@@ -3,6 +3,7 @@ package com.salocin.authentication.di;
 import com.salocin.authentication.di.auth.AuthModule;
 import com.salocin.authentication.di.auth.AuthViewModelsModule;
 import com.salocin.authentication.di.main.MainFragmentBuildersModule;
+import com.salocin.authentication.di.main.MainModule;
 import com.salocin.authentication.di.main.MainViewModelsModule;
 import com.salocin.authentication.ui.auth.AuthActivity;
 import com.salocin.authentication.ui.main.MainActivity;
@@ -26,7 +27,8 @@ public abstract class ActivityBuildersModule {
             (
                     modules = {
                             MainFragmentBuildersModule.class,
-                            MainViewModelsModule.class
+                            MainViewModelsModule.class,
+                            MainModule.class,
                     }
             )
     abstract MainActivity contributeMainActivity();

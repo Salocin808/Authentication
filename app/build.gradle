@@ -61,4 +61,9 @@ dependencies {
 
     // Reactive Streams (convert Observable to LiveData)
     implementation "android.arch.lifecycle:reactivestreams:1.1.1"
+
+    // architecture comp. navigation
+    implementation "androidx.navigation:navigation-fragment:2.1.0-alpha02"
+    implementation "androidx.navigation:navigation-ui:2.1.0-alpha02"
+    implementation "androidx.navigation:navigation-runtime:2.1.0-alpha02"
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main">
+
+    <fragment
+        android:id="@+id/profileScreen"
+        android:name="com.salocin.authentication.ui.main.profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile"/>
+
+    <fragment
+        android:id="@+id/postsScreen"
+        android:name="com.salocin.authentication.ui.main.posts.PostsFragment"
+        android:label="@string/posts"
+        tools:layout="@layout/fragment_posts"/>
+
+
+</navigation>
